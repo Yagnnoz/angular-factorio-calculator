@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SOLARPANELS} from "../mock-solarpanels";
 
 @Component({
   selector: 'app-solar-calculator',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolarCalculatorComponent implements OnInit {
 
-  constructor() { }
+  panels = SOLARPANELS;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+
   }
 
 }
