@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SOLARPANELS} from "../mock-solarpanels";
-import {ACCUMULATORS} from "../mock-accumulators";
+import {Bobs, Vanilla} from "../mock-solarpanels";
+import {ACC_BOBS, ACC_VANILLA} from "../mock-accumulators";
 import {SolarInterface} from "../solar-interface";
 import {AccumulatorInterface} from "../accumulator-interface";
 
@@ -11,8 +11,10 @@ import {AccumulatorInterface} from "../accumulator-interface";
 })
 export class SolarCalculatorComponent implements OnInit {
 
-  panels = SOLARPANELS;
-  accumulators = ACCUMULATORS;
+  panelsVanilla = Vanilla;
+  panelsBobs = Bobs;
+  accumulatorsVanilla = ACC_VANILLA;
+  accumulatorsBobs = ACC_BOBS;
   selectedPanel!: SolarInterface;
   selectedAccumulator!: AccumulatorInterface;
   powerNeeded: number = 0;
@@ -38,7 +40,7 @@ export class SolarCalculatorComponent implements OnInit {
 
     //first validate input number
 
-    if (!isNaN(this.powerNeeded) && this.powerNeeded>0) {
+    if (!isNaN(this.powerNeeded) && this.powerNeeded > 0) {
       this.neededJoule = this.calculateNeededJoule(this.powerNeeded);
       this.calculatedRatio = this.calculateRatio();
       this.neededSolarPanels = this.calculateNeededSolarPanels(this.neededJoule);

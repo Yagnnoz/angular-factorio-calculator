@@ -6,15 +6,24 @@
 <div class="solarPanelChooser">
   <label for="solarChoose">Pick your solar panels: </label>
   <select id="solarChoose" [(ngModel)]="selectedPanel">
-    <option *ngFor="let panel of panels; let i = index" [ngValue]="panel" [selected]="i==0">{{panel.name}}</option>
+    <optgroup label="Vanilla">
+      <option *ngFor="let panel of panelsVanilla;" [ngValue]="panel" selected=>{{panel.name}}</option>
+    </optgroup>
+    <optgroup label="Bobs Panels">
+      <option *ngFor="let panel of panelsBobs" [ngValue]="panel">{{panel.name}}</option>
+    </optgroup>
   </select>
 </div>
 
 <div class="accumulatorChooser">
   <label for="accumulatorChoose">Pick your accumulator type: </label>
   <select id="accumulatorChoose" [(ngModel)]="selectedAccumulator">
-    <option *ngFor="let accumulator of accumulators; let i= index" [ngValue]="accumulator"
-            [selected]="i==0">{{accumulator.id}} - {{accumulator.name}}</option>
+    <optgroup label="Vanilla">
+      <option *ngFor="let accumulator of accumulatorsVanilla" [ngValue]="accumulator">{{accumulator.name}}</option>
+    </optgroup>
+    <optgroup label="Bobs">
+      <option *ngFor="let accumulator of accumulatorsBobs" [ngValue]="accumulator">{{accumulator.name}}</option>
+    </optgroup>
   </select>
 </div>
 
@@ -31,8 +40,10 @@
 
 
 <div class="result" *ngIf="result">
-  <p>In order to get {{powerNeeded}}MW of power with {{selectedPanel.name}} type solar panels
-    and {{selectedAccumulator.name}}
-    type accumulators you need {{neededSolarPanels}} solar panels and {{neededAccumulators}} accumulators. <br>
+  <p>In order to get <span class="res_pwrNeeded">{{powerNeeded}}</span>MW of power with <span
+    class="res_selPanel">{{selectedPanel.name}}</span> type solar panels
+    and <span class="sel_Accumulator">{{selectedAccumulator.name}} </span>
+    type accumulators you need <span class="amount">{{neededSolarPanels}}</span> solar panels and <span
+      class="amount">{{neededAccumulators}}</span> accumulators. <br>
     Results are always rounded up to the next integer.</p>
 </div>
