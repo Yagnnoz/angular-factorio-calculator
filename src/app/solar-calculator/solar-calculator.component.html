@@ -5,27 +5,31 @@
 </div>
 <div class="solarPanelChooser">
   <label for="solarChoose">Pick your solar panels: </label>
-  <select id="solarChoose" #solarChoice>
-    <option *ngFor="let panel of panels">{{panel.name}}</option>
+  <select id="solarChoose" [(ngModel)]="selectedPanel">
+    <option *ngFor="let panel of panels" [ngValue]="panel">{{panel.name}}</option>
   </select>
 </div>
 
 <div class="accumulatorChooser">
   <label for="accumulatorChoose">Pick your accumulator type: </label>
-  <select id="accumulatorChoose" #accumulatorChoice>
-    <option *ngFor="let accumulator of accumulators">{{accumulator.name}}</option>
+  <select id="accumulatorChoose" [(ngModel)]="selectedAccumulator">
+    <option *ngFor="let accumulator of accumulators" [ngValue]="accumulator">{{accumulator.id}} - {{accumulator.name}}</option>
   </select>
 </div>
 
 <div class="powerInput">
   <label for="MWInput">How much power do you need (in MW)? </label>
-  <input type="number" id="MWInput" #MWChoice>
+  <input type="number" id="MWInput" required [(ngModel)]="powerNeeded">
+  <span class="validity"></span>
 </div>
 
 <div class="calcButton">
-  <button type="button" (click)="calculate(solarChoice.value, accumulatorChoice.value, MWChoice.valueAsNumber)">Calculate!</button>
+  <button type="submit" (click)="calculate()">Calculate!</button>
 </div>
 
-<div class="result">
 
+<div class="result" *ngIf="result">
+<p>In order to get {{powerNeeded}}MW of power with {{selectedPanel.name}} type solar panels and {{selectedAccumulator.name}}
+type accumulators you need {{neededSolarPanels}} solar panels and {{neededAccumulators}} accumulators. <br>
+Results are always rounded up to the next integer.</p>
 </div>
