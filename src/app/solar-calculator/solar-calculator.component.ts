@@ -38,7 +38,7 @@ export class SolarCalculatorComponent implements OnInit {
 
     //first validate input number
 
-    if (!isNaN(this.powerNeeded)) {
+    if (!isNaN(this.powerNeeded) && this.powerNeeded>0) {
       this.neededJoule = this.calculateNeededJoule(this.powerNeeded);
       this.calculatedRatio = this.calculateRatio();
       this.neededSolarPanels = this.calculateNeededSolarPanels(this.neededJoule);
@@ -80,6 +80,16 @@ export class SolarCalculatorComponent implements OnInit {
 
   private calculateNeededAccumulators(ratio: number, neededPanels: number): number {
     return (ratio * neededPanels) + 1;
+
+  }
+
+  reset(): void {
+    this.result = false;
+    this.powerNeeded = 0;
+    this.calculatedRatio = 0;
+    this.neededSolarPanels = 0;
+    this.neededAccumulators = 0;
+    this.neededJoule = 0;
 
   }
 
