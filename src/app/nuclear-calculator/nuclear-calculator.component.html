@@ -39,7 +39,7 @@
 
   <h3>Calculations</h3>
   <span>These calculations are done based on the number that you entered.</span>
-  <span>If nothing is here, that means that you did not enter a number</span>
+  <span *ngIf="!singleReactorEquivalent">If nothing is here, that means that you did not enter a number</span>
   <div *ngIf="singleReactorEquivalent" class="descriptionText">
     <span>Power Output: {{powerOutputInMW}}MW</span>
     <span>Heat Exchangers needed: {{neededHeatExchangers}}</span>
