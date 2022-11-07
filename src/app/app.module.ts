@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SolarCalculatorComponent } from './solar-calculator/solar-calculator.component';
 import {FormsModule} from "@angular/forms";
+import { NuclearCalculatorComponent } from './nuclear-calculator/nuclear-calculator.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SolarCalculatorComponent
+    SolarCalculatorComponent,
+    NuclearCalculatorComponent,
+    MainPageComponent
   ],
     imports: [
         BrowserModule,
