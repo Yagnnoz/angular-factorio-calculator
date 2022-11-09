@@ -15,9 +15,10 @@ export class SolarCalculatorComponent implements OnInit {
   panelsBobs = Bobs;
   accumulatorsVanilla = ACC_VANILLA;
   accumulatorsBobs = ACC_BOBS;
-  selectedPanel!: SolarInterface;
-  selectedAccumulator!: AccumulatorInterface;
-  powerNeeded: number = 0;
+
+  selectedPanel: SolarInterface = Vanilla[0];
+  selectedAccumulator: AccumulatorInterface = ACC_VANILLA[0];
+  powerNeeded!: number;
 
   calculatedRatio: number = 0;
   neededSolarPanels: number = 0;
@@ -25,9 +26,6 @@ export class SolarCalculatorComponent implements OnInit {
   neededJoule: number = 0;
 
   SOLARCHARGESECONDS: number = 291.67;
-
-
-  result: boolean = false;
 
   constructor() {
   }
@@ -40,7 +38,7 @@ export class SolarCalculatorComponent implements OnInit {
 
     //first validate input number
 
-    if (!isNaN(this.powerNeeded) && this.powerNeeded > 0) {
+    if (!isNaN(this.powerNeeded) && this.powerNeeded > 0 && this.selectedAccumulator !== undefined && this.selectedPanel !== undefined) {
       this.neededJoule = this.calculateNeededJoule(this.powerNeeded);
       this.calculatedRatio = this.calculateRatio();
       this.neededSolarPanels = this.calculateNeededSolarPanels(this.neededJoule);
@@ -49,7 +47,6 @@ export class SolarCalculatorComponent implements OnInit {
       //make both numbers nice and round
       this.neededSolarPanels = Math.ceil(this.neededSolarPanels);
       this.neededAccumulators = Math.ceil(this.neededAccumulators);
-      this.result = true;
     }
   }
 
@@ -86,7 +83,6 @@ export class SolarCalculatorComponent implements OnInit {
   }
 
   reset(): void {
-    this.result = false;
     this.powerNeeded = 0;
     this.calculatedRatio = 0;
     this.neededSolarPanels = 0;

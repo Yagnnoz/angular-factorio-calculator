@@ -5,7 +5,7 @@
 </div>
 <div class="solarPanelChooser">
   <label for="solarChoose">Pick your solar panels: </label>
-  <select id="solarChoose" [(ngModel)]="selectedPanel">
+  <select id="solarChoose" [(ngModel)]="selectedPanel"(change)="calculate()">
     <optgroup label="Vanilla">
       <option *ngFor="let panel of panelsVanilla;" [ngValue]="panel" selected=>{{panel.name}}</option>
     </optgroup>
@@ -17,7 +17,7 @@
 
 <div class="accumulatorChooser">
   <label for="accumulatorChoose">Pick your accumulator type: </label>
-  <select id="accumulatorChoose" [(ngModel)]="selectedAccumulator">
+  <select id="accumulatorChoose" [(ngModel)]="selectedAccumulator" (change)="calculate()">
     <optgroup label="Vanilla">
       <option *ngFor="let accumulator of accumulatorsVanilla" [ngValue]="accumulator">{{accumulator.name}}</option>
     </optgroup>
@@ -29,17 +29,11 @@
 
 <div class="powerInput">
   <label for="MWInput">How much power do you need (in MW)? </label>
-  <input type="number" id="MWInput" required [(ngModel)]="powerNeeded">
+  <input type="number" id="MWInput" required [(ngModel)]="powerNeeded" (input)="calculate()">
   <span class="validity"></span>
 </div>
 
-<div class="buttons">
-  <button type="submit" (click)="calculate()">Calculate!</button>
-  <button type="button" (click)="reset()">Reset</button>
-</div>
-
-
-<div class="result" *ngIf="result">
+<div class="result" *ngIf="neededSolarPanels">
   <p>In order to get <span class="res_pwrNeeded">{{powerNeeded}}</span>MW of power with <span
     class="res_selPanel">{{selectedPanel.name}}</span> type solar panels
     and <span class="sel_Accumulator">{{selectedAccumulator.name}} </span>
