@@ -7,13 +7,15 @@ import { SolarCalculatorComponent } from './solar-calculator/solar-calculator.co
 import {FormsModule} from "@angular/forms";
 import { NuclearCalculatorComponent } from './nuclear-calculator/nuclear-calculator.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SolarCalculatorComponent,
     NuclearCalculatorComponent,
-    MainPageComponent
+    MainPageComponent,
+    NavigationComponent
   ],
     imports: [
         BrowserModule,
