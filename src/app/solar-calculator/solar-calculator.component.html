@@ -5,7 +5,7 @@
 </div>
 <div class="solarPanelChooser">
   <label for="solarChoose">Pick your solar panels: </label>
-  <select id="solarChoose" [(ngModel)]="selectedPanel"(change)="calculate()">
+  <select id="solarChoose" [(ngModel)]="selectedPanel" (change)="calculate()">
     <optgroup label="Vanilla">
       <option *ngFor="let panel of panelsVanilla;" [ngValue]="panel" selected=>{{panel.name}}</option>
     </optgroup>
