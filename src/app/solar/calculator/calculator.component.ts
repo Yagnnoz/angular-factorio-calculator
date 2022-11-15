@@ -1,23 +1,23 @@
 import {Component, OnInit} from '@angular/core';
-import {Bobs, Vanilla} from "../mock-solarpanels";
-import {ACC_BOBS, ACC_VANILLA} from "../mock-accumulators";
-import {SolarInterface} from "../solar-interface";
-import {AccumulatorInterface} from "../accumulator.interface";
+import {Bobs, Vanilla} from "../../mock-solarpanels";
+import {ACC_BOBS, ACC_VANILLA} from "../../mock-accumulators";
+import {SolarInterface} from "../../solar-interface";
+import {AccumulatorInterface} from "../../accumulator.interface"
 
 @Component({
   selector: 'app-solar-calculator',
-  templateUrl: './solar-calculator.component.html',
-  styleUrls: ['./solar-calculator.component.scss']
+  templateUrl: './calculator.component.html',
+  styleUrls: ['./calculator.component.scss']
 })
-export class SolarCalculatorComponent implements OnInit {
+export class CalculatorComponent implements OnInit {
 
-  panelsVanilla = Vanilla;
-  panelsBobs = Bobs;
-  accumulatorsVanilla = ACC_VANILLA;
-  accumulatorsBobs = ACC_BOBS;
+  panelsVanilla: SolarInterface[] = Vanilla;
+  panelsBobs:SolarInterface[] = Bobs;
+  accumulatorsVanilla:AccumulatorInterface[] = ACC_VANILLA;
+  accumulatorsBobs:AccumulatorInterface[] = ACC_BOBS;
 
-  selectedPanel: SolarInterface = Vanilla[0];
-  selectedAccumulator: AccumulatorInterface = ACC_VANILLA[0];
+  selectedPanel: SolarInterface = <SolarInterface>this.panelsVanilla[0];
+  selectedAccumulator: AccumulatorInterface = <AccumulatorInterface>this.accumulatorsVanilla[0];
   powerNeeded!: number;
 
   calculatedRatio: number = 0;
@@ -31,12 +31,13 @@ export class SolarCalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   calculate() {
 
     //first validate input number
+    console.log("running calculations!")
+    console.log(this.powerNeeded);
 
     if (!isNaN(this.powerNeeded) && this.powerNeeded > 0 && this.selectedAccumulator !== undefined && this.selectedPanel !== undefined) {
       this.neededJoule = this.calculateNeededJoule(this.powerNeeded);
@@ -47,6 +48,8 @@ export class SolarCalculatorComponent implements OnInit {
       //make both numbers nice and round
       this.neededSolarPanels = Math.ceil(this.neededSolarPanels);
       this.neededAccumulators = Math.ceil(this.neededAccumulators);
+
+      console.log(this.neededSolarPanels);
     }
   }
 
