@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {CalculatorComponent} from "./calculator.component";
+import {SolarCalculatorComponent} from "./solar-calculator.component";
 import {Vanilla} from "../../mock-solarpanels";
 import {ACC_VANILLA} from "../../mock-accumulators";
 import {SolarType} from "./types/solar.type";
 import {AccumulatorType} from "./types/accumulator.type";
 
 describe('SolarCalculatorComponent', () => {
-  let component: CalculatorComponent;
-  let fixture: ComponentFixture<CalculatorComponent>;
+  let component: SolarCalculatorComponent;
+  let fixture: ComponentFixture<SolarCalculatorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CalculatorComponent ]
+      declarations: [ SolarCalculatorComponent ]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(CalculatorComponent);
+    fixture = TestBed.createComponent(SolarCalculatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
