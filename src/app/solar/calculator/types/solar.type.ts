@@ -1,4 +1,4 @@
-export interface SolarInterface {
+export type SolarType = {
   id: number;
   name: string;
   powerInKW: number;

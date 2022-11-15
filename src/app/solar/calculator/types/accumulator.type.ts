@@ -1,4 +1,4 @@
-export interface AccumulatorInterface {
+export type AccumulatorType = {
   id: number;
   name: string;
   capacityInMJ: number;

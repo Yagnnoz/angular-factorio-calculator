@@ -1,11 +1,11 @@
-import {SolarInterface} from "./solar-interface";
+import {SolarType} from "./solar/calculator/types/solar.type";
 
 
-export const Vanilla: SolarInterface[] = [
+export const Vanilla: SolarType[] = [
   {id: 1, name: 'Vanilla', powerInKW: 60}
 ];
 
-export const Bobs: SolarInterface[] = [
+export const Bobs: SolarType[] = [
   {id: 2, name: 'Bobs MK 1', powerInKW: 60},
   {id: 3, name: 'Bobs MK 2', powerInKW: 90},
   {id: 4, name: 'Bobs MK 3', powerInKW: 135},

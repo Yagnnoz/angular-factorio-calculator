@@ -1,9 +1,9 @@
-import {AccumulatorInterface} from "./accumulator.interface";
+import {AccumulatorType} from "./solar/calculator/types/accumulator.type";
 
-export const ACC_VANILLA: AccumulatorInterface[] = [
+export const ACC_VANILLA: AccumulatorType[] = [
   {id: 1, name: 'Vanilla', capacityInMJ: 5}];
 
-export const ACC_BOBS: AccumulatorInterface[] = [
+export const ACC_BOBS: AccumulatorType[] = [
   {id: 2, name: 'Slow MK 1', capacityInMJ: 4},
   {id: 3, name: 'Slow MK 2', capacityInMJ: 6},
   {id: 4, name: 'Slow MK 3', capacityInMJ: 9},

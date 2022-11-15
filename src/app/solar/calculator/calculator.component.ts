@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Bobs, Vanilla} from "../../mock-solarpanels";
 import {ACC_BOBS, ACC_VANILLA} from "../../mock-accumulators";
-import {SolarInterface} from "../../solar-interface";
-import {AccumulatorInterface} from "../../accumulator.interface"
+import {SolarType} from "./types/solar.type";
+import {AccumulatorType} from "./types/accumulator.type"
 
 @Component({
   selector: 'app-solar-calculator',
@@ -11,13 +11,13 @@ import {AccumulatorInterface} from "../../accumulator.interface"
 })
 export class CalculatorComponent implements OnInit {
 
-  panelsVanilla: SolarInterface[] = Vanilla;
-  panelsBobs:SolarInterface[] = Bobs;
-  accumulatorsVanilla:AccumulatorInterface[] = ACC_VANILLA;
-  accumulatorsBobs:AccumulatorInterface[] = ACC_BOBS;
+  panelsVanilla: SolarType[] = Vanilla;
+  panelsBobs: SolarType[] = Bobs;
+  accumulatorsVanilla: AccumulatorType[] = ACC_VANILLA;
+  accumulatorsBobs: AccumulatorType[] = ACC_BOBS;
 
-  selectedPanel: SolarInterface = <SolarInterface>this.panelsVanilla[0];
-  selectedAccumulator: AccumulatorInterface = <AccumulatorInterface>this.accumulatorsVanilla[0];
+  selectedPanel: SolarType = <SolarType>this.panelsVanilla[0];
+  selectedAccumulator: AccumulatorType = <AccumulatorType>this.accumulatorsVanilla[0];
   powerNeeded!: number;
 
   calculatedRatio: number = 0;
@@ -39,7 +39,7 @@ export class CalculatorComponent implements OnInit {
     console.log("running calculations!")
     console.log(this.powerNeeded);
 
-    if (!isNaN(this.powerNeeded) && this.powerNeeded > 0 && this.selectedAccumulator !== undefined && this.selectedPanel !== undefined) {
+    if (!isNaN(this.powerNeeded) && this.powerNeeded > 0 && typeof this.selectedAccumulator !== undefined && typeof this.selectedPanel !== undefined) {
       this.neededJoule = this.calculateNeededJoule(this.powerNeeded);
       this.calculatedRatio = this.calculateRatio();
       this.neededSolarPanels = this.calculateNeededSolarPanels(this.neededJoule);

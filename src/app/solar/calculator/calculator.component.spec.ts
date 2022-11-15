@@ -3,8 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {CalculatorComponent} from "./calculator.component";
 import {Vanilla} from "../../mock-solarpanels";
 import {ACC_VANILLA} from "../../mock-accumulators";
-import {SolarInterface} from "../../solar-interface";
-import {AccumulatorInterface} from "../../accumulator.interface";
+import {SolarType} from "./types/solar.type";
+import {AccumulatorType} from "./types/accumulator.type";
 
 describe('SolarCalculatorComponent', () => {
   let component: CalculatorComponent;
@@ -26,8 +26,8 @@ describe('SolarCalculatorComponent', () => {
   });
 
   it('should return the correct values for 20 MW Vanilla (478 Panels & 402 Accumulators)', async () => {
-    component.selectedPanel = <SolarInterface>Vanilla[0];
-    component.selectedAccumulator = <AccumulatorInterface>ACC_VANILLA[0];
+    component.selectedPanel = <SolarType>Vanilla[0];
+    component.selectedAccumulator = <AccumulatorType>ACC_VANILLA[0];
     component.powerNeeded=20;
 
     component.calculate();
