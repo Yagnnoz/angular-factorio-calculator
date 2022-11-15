@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-nuclear-calculator',
-  templateUrl: './nuclear-calculator.component.html',
-  styleUrls: ['./nuclear-calculator.component.scss']
+  templateUrl: './nuclear.component.html',
+  styleUrls: ['./nuclear.component.scss']
 })
-export class NuclearCalculatorComponent implements OnInit {
+export class NuclearComponent implements OnInit {
 
   singleReactorEquivalent: number = 0;
   powerOutputInMW: number = 0;

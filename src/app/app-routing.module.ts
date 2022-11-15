@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {MainPageComponent} from "./main-page/main-page.component";
-import {SolarCalculatorComponent} from "./solar/calculator/solar-calculator.component";
-import {NuclearCalculatorComponent} from "./nuclear/calculator/nuclear-calculator.component";
+import {SolarComponent} from "./solar/calculator/solar.component";
+import {NuclearComponent} from "./nuclear/calculator/nuclear.component";
 
 const routes: Routes = [
-  {path: 'solar', component: SolarCalculatorComponent},
-  {path: 'nuclear', component: NuclearCalculatorComponent},
+  {path: 'solar', component: SolarComponent},
+  {path: 'nuclear', component: NuclearComponent},
   {path: 'main', component: MainPageComponent},
   {path: '', redirectTo: '/main', pathMatch: 'full'}
 ];

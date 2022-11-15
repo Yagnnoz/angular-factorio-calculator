@@ -7,12 +7,12 @@ import {FormsModule} from "@angular/forms";
 import { MainPageComponent } from './main-page/main-page.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import {SolarModule} from "./solar/solar.module";
-import {NuclearCalculatorComponent} from "./nuclear/calculator/nuclear-calculator.component";
+import {NuclearComponent} from "./nuclear/calculator/nuclear.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    NuclearCalculatorComponent,
+    NuclearComponent,
     MainPageComponent,
     NavigationComponent
   ],

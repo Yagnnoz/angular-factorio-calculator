@@ -6,10 +6,10 @@ import {AccumulatorType} from "./types/accumulator.type"
 
 @Component({
   selector: 'app-solar-calculator',
-  templateUrl: './solar-calculator.component.html',
-  styleUrls: ['./solar-calculator.component.scss']
+  templateUrl: './solar.component.html',
+  styleUrls: ['./solar.component.scss']
 })
-export class SolarCalculatorComponent implements OnInit {
+export class SolarComponent implements OnInit {
 
   panelsVanilla: SolarType[] = Vanilla;
   panelsBobs: SolarType[] = Bobs;

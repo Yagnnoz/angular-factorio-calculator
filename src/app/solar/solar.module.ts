@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {SolarCalculatorComponent} from './calculator/solar-calculator.component';
+import {SolarComponent} from './calculator/solar.component';
 import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
-    SolarCalculatorComponent
+    SolarComponent
   ],
   imports: [
     CommonModule,
