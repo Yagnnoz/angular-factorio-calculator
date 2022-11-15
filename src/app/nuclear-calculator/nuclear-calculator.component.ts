@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 @Component({
   selector: 'app-nuclear-calculator',
   templateUrl: './nuclear-calculator.component.html',
-  styleUrls: ['./nuclear-calculator.component.css']
+  styleUrls: ['./nuclear-calculator.component.scss']
 })
 export class NuclearCalculatorComponent implements OnInit {
 

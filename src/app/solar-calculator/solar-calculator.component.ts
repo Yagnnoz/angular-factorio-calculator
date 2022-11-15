@@ -2,12 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {Bobs, Vanilla} from "../mock-solarpanels";
 import {ACC_BOBS, ACC_VANILLA} from "../mock-accumulators";
 import {SolarInterface} from "../solar-interface";
-import {AccumulatorInterface} from "../accumulator-interface";
+import {AccumulatorInterface} from "../accumulator.interface";
 
 @Component({
   selector: 'app-solar-calculator',
   templateUrl: './solar-calculator.component.html',
-  styleUrls: ['./solar-calculator.component.css']
+  styleUrls: ['./solar-calculator.component.scss']
 })
 export class SolarCalculatorComponent implements OnInit {
 

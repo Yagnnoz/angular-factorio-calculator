@@ -1,4 +1,4 @@
-import {AccumulatorInterface} from "./accumulator-interface";
+import {AccumulatorInterface} from "./accumulator.interface";
 
 export const ACC_VANILLA: AccumulatorInterface[] = [
   {id: 1, name: 'Vanilla', capacityInMJ: 5}];
